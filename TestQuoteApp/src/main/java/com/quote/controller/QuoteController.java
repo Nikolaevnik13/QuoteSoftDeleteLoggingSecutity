@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.quote.model.Operation;
 import com.quote.model.Quote;
-import com.quote.model.Quote_log;
 import com.quote.service.QuoteService;
+import com.quote.model.Quote_log;
 
 @RequestMapping("/quote")
 @RestController

@@ -1,6 +1,5 @@
 package com.quote.model;
 
-
 import java.time.LocalDateTime;
 
 import javax.annotation.ManagedBean;

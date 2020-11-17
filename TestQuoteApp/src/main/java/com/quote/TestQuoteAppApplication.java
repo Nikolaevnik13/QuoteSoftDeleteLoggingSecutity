@@ -41,6 +41,7 @@ public class TestQuoteAppApplication implements CommandLineRunner{
 					.role("Administrator")
 					.expDate(LocalDateTime.now().plusYears(25))
 					.build();
+			
 			accountRepository.save(admin);
 		}
 	}

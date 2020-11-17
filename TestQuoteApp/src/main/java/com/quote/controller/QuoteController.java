@@ -35,7 +35,7 @@ public class QuoteController {
 		quote_log_context.setQuote_id(quote.getName());
 		return service.addQuote(quote);
 	}
-	
+
 	@GetMapping("/{name}")
 	public Quote getQuote(@PathVariable String name) {
 		return service.getQuote(name);
@@ -45,7 +45,7 @@ public class QuoteController {
 	public List<Quote> getQuotesByNamesList(@RequestBody List<String> names) {
 		return service.getQuotesByNames(names);
 	}
-	
+
 	@GetMapping("/all")
 	public List<Quote> getQuotes() {
 		return service.getQuotes();

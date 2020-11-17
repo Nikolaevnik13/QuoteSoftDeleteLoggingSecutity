@@ -1,5 +1,10 @@
 package com.quote.exception;
 
+
+
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +51,18 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler{
 		
 		return new ResponseEntity<QuoteException>(ex,HttpStatus.CONFLICT);
 	}
+	
+//	@org.springframework.web.bind.annotation.ExceptionHandler(NegativeArgumentException.class)	
+//	protected ResponseEntity<QuoteException> handlerNegativeArgumentExcep(NegativeArgumentException negativeException,HttpServletRequest request) {
+//		QuoteException ex = new QuoteException(1,"negativ","error");
+//		
+//		LOGGER.error(ex.getDescription(),negativeException);
+//		loggerException.logException(ex);
+//
+//		
+//		return new ResponseEntity<QuoteException>(ex,HttpStatus.I_AM_A_TEAPOT);
+//	}
+	
 	
 	
 

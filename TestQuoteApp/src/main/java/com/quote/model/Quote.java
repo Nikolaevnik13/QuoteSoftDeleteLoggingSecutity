@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -12,6 +13,9 @@ import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
 import org.hibernate.annotations.SQLDelete;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.quote.exception.NegativeArgumentException;
+
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,8 +42,9 @@ public class Quote implements Serializable {
 	
 	@Id
 	private String name;
+	
 	private Integer price;
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	List<Item> items;
 	@Column(name = "DELETED")	
 	boolean isDeleted;
@@ -59,7 +64,8 @@ public class Quote implements Serializable {
 			throw new IllegalArgumentException("value of price is not correct");
 		}
 		if (price < 0) {
-			throw new IllegalArgumentException("value of price is not correct");
+			throw new IllegalArgumentException();
+//			throw new NegativeArgumentException();
 		}
 	}
 	
@@ -69,8 +75,9 @@ public class Quote implements Serializable {
 
 	private void validateName(String name) {
 		if (name==null) {
-			System.out.println("ffffff");
-			//TODO
+			
+			throw new IllegalArgumentException();
+		
 		}
 		if (name.isEmpty()) {
 			throw new IllegalArgumentException();

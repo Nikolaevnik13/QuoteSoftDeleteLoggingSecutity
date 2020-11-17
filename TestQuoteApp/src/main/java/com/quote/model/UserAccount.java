@@ -5,11 +5,9 @@ import java.util.Set;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -17,6 +15,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Singular;
+
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,8 +31,9 @@ public class UserAccount {
 	String login;
 	String password;
 	LocalDateTime expDate;
+	
 	@Singular
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	Set<String> roles;
 	String firstName;
 	String lastName;

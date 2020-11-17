@@ -31,6 +31,7 @@ public class QuoteController {
 
 	@PutMapping()
 	public Quote addQuote(@RequestBody Quote quote,HttpServletRequest request) {
+		System.out.println("conty");
 		quote_log_context.setOperation(Operation.CREATE);
 		quote_log_context.setQuote_id(quote.getName());
 		return service.addQuote(quote);

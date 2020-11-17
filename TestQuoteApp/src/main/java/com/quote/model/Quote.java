@@ -1,6 +1,7 @@
 package com.quote.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +14,8 @@ import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
 import org.hibernate.annotations.SQLDelete;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.quote.exception.NegativeArgumentException;
 import com.quote.exception.NegativeArgumentException;
-
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -64,8 +65,8 @@ public class Quote implements Serializable {
 			throw new IllegalArgumentException("value of price is not correct");
 		}
 		if (price < 0) {
-			throw new IllegalArgumentException();
-//			throw new NegativeArgumentException();
+//			throw new IllegalArgumentException();
+			throw new NegativeArgumentException();
 		}
 	}
 	
